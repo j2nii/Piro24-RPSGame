@@ -25,29 +25,35 @@ MediaPipe의 Hand Landmarker는 사람 손에서 총 21개의 랜드마크를 �
 공식 문서와 Colab 기반의 초기 세팅 가이드
 과제 시작이 막막할 때 참고해주세요:
 
-1. 가상환경 세팅은 기존과 동일하게 해주시면 됩니다(bash)
+1. 시작 부분은 기존과 동일합니다 - 본인 디렉토리 생성
+   
+2. 프로젝트 클론 받기(bash)
+```
+git clone https://github.com/j2nii/Piro24-RPSGame.git
+```
+
+3. 가상환경 세팅은 기존과 동일하게 해주시면 됩니다(bash)
 ```
 python -m venv venv
 ```
 
-2. mediapipe 패키지 설치(bash)
+4. mediapipe 패키지 설치(bash)
 ```
 pip install mediapipe
 ```
 필요하다면 opencv-python 패키지도 설치해주세요
 
-3. hand_landmarker 모델 다운로드(bash)
+5. hand_landmarker 모델 다운로드(bash)
 ```
 curl -o hand_landmarker.task https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task
 ```
 
-4. 이제 스켈레톤 코드를 활용하시면 됩니다!
+6. 이제 스켈레톤 코드를 활용하시면 됩니다!
     - `visualization.py`
         - `draw_manual` 함수: landmarks 시각화 함수
             공식 코랩 코드에서는 `mediapipe.solutions`로 시각화를 진행
             오류가 나는 경우 사용 가능한 cv2를 활용한 landmarks 시각화 함수
-        - (참고)`print_RSP_result` 함수: 가위, 바위, 보 출력 함수
-            당연히 이 함수 말고 따로 코딩하셔도 됩니다 :)
+        - (참고)`print_RSP_result` 함수: 가위, 바위, 보 출력 함수 - 당연히 이 함수 말고 따로 코딩하셔도 됩니다 :)
 
     - `webcam.py`: openCV 기반 카메라 비디오 라이브 스트림 레거시 코드
         
@@ -59,7 +65,7 @@ curl -o hand_landmarker.task https://storage.googleapis.com/mediapipe-models/han
         - 창을 x 표시하는 게 아니라 키보드의 "q" 버튼을 눌러야 종료됩니다
 
     - `main.py`: main.py 실행했을 때, 다음과 같이 카메라 스트리밍 화면이 뜨고, 결과가 나오도록 해주세요
-        (당연히 모두 같을 필요는 없고 가위, 바위, 보를 잘 판별하고 화면에 출력되도록 하면 됩니다.)
+        - (당연히 모두 같을 필요는 없고 가위, 바위, 보를 잘 판별하고 화면에 출력되도록 하면 됩니다.)
         
         |가위|바위|보|
         |------|---|---|
